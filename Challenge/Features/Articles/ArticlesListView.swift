@@ -33,12 +33,21 @@ struct ArticleListView: View {
     
     private var content: some View {
         ArticlesList(
-            articles: viewModel.state.articles,
-            isLoading: viewModel.state.canLoadNextPage,
-            onScrolledAtBottom: viewModel.fetchNextPageIfPossible
-        )
-        .onAppear(perform: viewModel.fetchNextPageIfPossible)
+                articles: viewModel.state.articles,
+                isLoading: viewModel.state.canLoadNextPage,
+                onScrolledAtBottom: viewModel.fetchNextPageIfPossible,
+                error : viewModel.state.error
+            )
+            .onAppear(perform: viewModel.fetchNextPageIfPossible)
     }
+    
+    struct Error : View {
+        let error : String
+        var body: some View{
+            Text(error)
+        }
+    }
+    
     
     private var topicContent : some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
@@ -83,28 +92,35 @@ struct ArticleListView: View {
         let articles: [Article]
         let isLoading: Bool
         let onScrolledAtBottom: () -> Void
-        
+        let error : String?
+
         var body: some View{
-            ScrollView {
-                LazyVStack {
-                    ForEach(articles) { article in
-                        NavigationLink(
-                            destination: ArticleDetailView(article: article),
-                            label: { ArticleListItemView(article: article) }
-                        )
-                        .onAppear {
-                            if articles.last?.id == article.id {
-                                self.onScrolledAtBottom()
+            if error != nil {
+                Error(error: error!)
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(articles) { article in
+                            NavigationLink(
+                                destination: ArticleDetailView(article: article),
+                                label: { ArticleListItemView(article: article) }
+                            )
+                            .onAppear {
+                                if articles.last?.id == article.id {
+                                    self.onScrolledAtBottom()
+                                }
                             }
+                            .padding(.all, 5)
                         }
-                        .padding(.all, 5)
-                    }
-                    if isLoading
-                    {
-                        ProgressView()
+                        if isLoading
+                        {
+                            ProgressView()
+                        }
                     }
                 }
+
             }
+            
         }
     }
 }

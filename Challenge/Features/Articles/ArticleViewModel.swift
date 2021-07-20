@@ -16,10 +16,10 @@ final class ArticleListViewModel: ObservableObject {
     struct State {
         var totalResults = 15
         var articles: [Article] = []
-        var visibleArticles: [Article] = []
         var page: Int = 1
         var canLoadNextPage = true
         var activeTab = "all"
+        var error : String?
     }
     
     private var subscriptions = Set<AnyCancellable>()
@@ -45,23 +45,20 @@ final class ArticleListViewModel: ObservableObject {
         }
         response
             .map {
-                return $0.articles!.map(Article.init)
+                if( $0.status == "error") {
+                    self.state.error = $0.message
+                    return self.state.articles
+                } else {
+                    self.state.error = nil
+                    return $0.articles!.map(Article.init)
+                }
             }
-            .sink(receiveCompletion: onReceive,
+            .sink(receiveCompletion: onReceiveCompletion,
                   receiveValue: onReceive)
             .store(in: &subscriptions)
     }
-    
-    func search(searchText : String)  {
-        if searchText.isEmpty {
-            state.visibleArticles = state.articles
-        } else  {
-            state.visibleArticles = state.articles.filter{ $0.title?.lowercased().contains(searchText.lowercased()) ?? false }
-        }
-            
-    }
-    
-    private func onReceive(_ completion: Subscribers.Completion<Error>) {
+        
+    private func onReceiveCompletion(_ completion: Subscribers.Completion<Error>) {
         switch completion {
         case .finished:
             break
