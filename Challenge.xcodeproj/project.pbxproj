@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F476274426A714B0002F8105 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = F476274326A714B0002F8105 /* AlertX */; };
 		F4AA7FA326A44597009D2226 /* ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA7FA226A44597009D2226 /* ChallengeApp.swift */; };
 		F4AA7FA526A44597009D2226 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA7FA426A44597009D2226 /* ContentView.swift */; };
 		F4AA7FA726A4459C009D2226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AA7FA626A4459C009D2226 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F476274426A714B0002F8105 /* AlertX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +268,9 @@
 			dependencies = (
 			);
 			name = Challenge;
+			packageProductDependencies = (
+				F476274326A714B0002F8105 /* AlertX */,
+			);
 			productName = Challenge;
 			productReference = F4AA7F9F26A44597009D2226 /* Challenge.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +342,9 @@
 				Base,
 			);
 			mainGroup = F4AA7F9626A44597009D2226;
+			packageReferences = (
+				F476274226A714B0002F8105 /* XCRemoteSwiftPackageReference "AlertX" */,
+			);
 			productRefGroup = F4AA7FA026A44597009D2226 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -716,6 +724,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F476274226A714B0002F8105 /* XCRemoteSwiftPackageReference "AlertX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/neel-makhecha/AlertX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F476274326A714B0002F8105 /* AlertX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F476274226A714B0002F8105 /* XCRemoteSwiftPackageReference "AlertX" */;
+			productName = AlertX;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F4AA7F9726A44597009D2226 /* Project object */;
 }

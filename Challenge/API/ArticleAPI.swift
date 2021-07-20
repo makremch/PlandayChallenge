@@ -11,7 +11,7 @@ import Combine
 enum ArticlesAPI {
     static let imageBase      = URL(string: "https://image.tmdb.org/t/p/original/")!
     private static let base   = URL(string: "https://newsapi.org/v2")!
-    private static let apiKey = "0a0a0b1590304ca28136754f69d3a579"
+    private static let apiKey =             "0a0a0b1590304ca28136754f69d3a579"
     private static let agent  = Agent()
     
     

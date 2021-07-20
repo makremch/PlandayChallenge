@@ -9,6 +9,7 @@ import SwiftUI
 import Foundation
 import Combine
 import UIKit
+import AlertX
 
 struct ArticleListView: View {
     @ObservedObject var viewModel: ArticleListViewModel
@@ -44,7 +45,7 @@ struct ArticleListView: View {
     struct Error : View {
         let error : String
         var body: some View{
-            Text(error)
+            AlertX(title: Text(error),theme: .wine(withTransparency: true, roundedCorners: true))
         }
     }
     
@@ -56,6 +57,7 @@ struct ArticleListView: View {
                     viewModel.changeTab(activeTab: "all")
                 }){
                     Text("All")
+                        .underline(viewModel.state.activeTab=="all",color: Color.white)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .padding(.vertical)
@@ -65,7 +67,9 @@ struct ArticleListView: View {
                 Button(action: {
                     viewModel.changeTab(activeTab: "covid")
                 }){
+                    
                     Text("Covid")
+                        .underline(viewModel.state.activeTab=="covid",color: Color.white)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .padding(.vertical)
@@ -77,6 +81,7 @@ struct ArticleListView: View {
                     viewModel.changeTab(activeTab: "sport")
                 }){
                     Text("Sport")
+                        .underline(viewModel.state.activeTab=="sport",color: Color.white)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .padding(.vertical)
