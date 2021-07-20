@@ -10,11 +10,11 @@ import SwiftUI
 import UIKit
 
 struct Spinner: UIViewRepresentable {
-    let isAnimating: Bool
-    let style: UIActivityIndicatorView.Style
+    let isAnimating : Bool
+    let style       : UIActivityIndicatorView.Style
 
     func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let spinner = UIActivityIndicatorView(style: style)
+        let spinner              = UIActivityIndicatorView(style: style)
         spinner.hidesWhenStopped = true
         return spinner
     }

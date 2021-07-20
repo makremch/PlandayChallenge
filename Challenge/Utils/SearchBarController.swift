@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 struct SearchNavigation<Content: View>: UIViewControllerRepresentable {
-    @Binding var text: String
-    var search: () -> Void
-    var cancel: () -> Void
-    var content: () -> Content
+    @Binding var text : String
+    var search        : () -> Void
+    var cancel        : () -> Void
+    var content       : () -> Content
 
     func makeUIViewController(context: Context) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: context.coordinator.rootViewController)

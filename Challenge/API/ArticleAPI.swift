@@ -15,7 +15,7 @@ enum ArticlesAPI {
     private static let agent  = Agent()
     
     
-    //MARK:- Get NewsList from Agent performRequest
+    //MARK:- Get NewsList from Agent performRequest: Everything param
     static func getArticles(params : [String:String]) -> AnyPublisher<ArticlesResponse, Error> {
         let request = URLComponents(url: base.appendingPathComponent("everything"), resolvingAgainstBaseURL: true)?
             .addingApiKey(apiKey)
@@ -23,7 +23,8 @@ enum ArticlesAPI {
             .request
         return agent.performRequest(request!)
     }
-    //MARK:- Get NewsList from Agent performRequest
+    
+    //MARK:- Get NewsList from Agent performRequest: Top param
     static func getTopHeadlines(params : [String:String]) -> AnyPublisher<ArticlesResponse, Error> {
         let request = URLComponents(url: base.appendingPathComponent("top-headlines"), resolvingAgainstBaseURL: true)?
             .addingApiKey(apiKey)

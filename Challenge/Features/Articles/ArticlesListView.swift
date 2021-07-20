@@ -18,19 +18,16 @@ struct ArticleListView: View {
     }
     func cancel() {
         viewModel.changeTab(activeTab: "all")
-
+        
     }
     
     var body: some View {
-
-            SearchNavigation(text: $searchString, search: search, cancel: cancel) {
-                
-                content
-                    .navigationBarTitle("News",displayMode: .large)
-            }
+        SearchNavigation(text: $searchString, search: search, cancel: cancel) {
+            content
+                .navigationBarTitle("News",displayMode: .large)
+        }
         topicContent
             .background(Color.blue)
-            
     }
     
     
@@ -41,7 +38,6 @@ struct ArticleListView: View {
             onScrolledAtBottom: viewModel.fetchNextPageIfPossible
         )
         .onAppear(perform: viewModel.fetchNextPageIfPossible)
-        
     }
     
     private var topicContent : some View {
@@ -77,8 +73,6 @@ struct ArticleListView: View {
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width / 3 )
                 }
-                
-                
             }
         })
         .frame( height: 80, alignment: .center)
@@ -94,22 +88,17 @@ struct ArticleListView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(articles) { article in
-                        
                         NavigationLink(
                             destination: ArticleDetailView(article: article),
                             label: { ArticleListItemView(article: article) }
                         )
-                        
                         .onAppear {
                             if articles.last?.id == article.id {
                                 self.onScrolledAtBottom()
                             }
-                            
                         }
-                        
                         .padding(.all, 5)
                     }
-                    
                     if isLoading
                     {
                         ProgressView()
@@ -117,7 +106,6 @@ struct ArticleListView: View {
                 }
             }
         }
-        
     }
 }
 

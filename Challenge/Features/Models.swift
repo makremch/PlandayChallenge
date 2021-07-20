@@ -9,11 +9,11 @@ import Foundation
 
 
 // MARK: - Article Response
-struct ArticlesResponse: Codable {
-    let status        : String?
-    let totalResults  : Int?
-    let articles      : [ArticleDTO]?
-    let message            : String?
+struct ArticlesResponse : Codable {
+    let status          : String?
+    let totalResults    : Int?
+    let articles        : [ArticleDTO]?
+    let message         : String?
 
 }
 
@@ -64,8 +64,7 @@ class Article : Identifiable, ObservableObject {
         }
         else {
             self.image = URL(string: "https://nelowvision.com/wp-content/uploads/2018/11/Picture-Unavailable.jpg")!
-        }
-
+        } 
         self.publishedAt = ISO8601DateFormatter().date(from:article.publishedAt!)!
         
     }

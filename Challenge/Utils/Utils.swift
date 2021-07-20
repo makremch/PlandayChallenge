@@ -9,11 +9,7 @@ import Foundation
 
 
 class Utils {
-    init(){}
-    
-    
-    
-    
+    init(){} 
     func formatDate(date : Date , format : String) -> String {
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = format

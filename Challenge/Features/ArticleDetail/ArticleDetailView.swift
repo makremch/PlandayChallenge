@@ -20,17 +20,14 @@ struct ArticleDetailView: View {
             customNavigationBar
         }
         ScrollView{
-            
             title
             Spacer().frame(height: 20, alignment: .center)
-            
             HStack(spacing:5){
                 Image(systemName: "calendar.badge.clock")
                     .foregroundColor(.gray.opacity(0.5))
                     .padding()
                 source
-            }
-            
+            } 
             Spacer().frame(height: 25, alignment: .center)
             description
             Spacer().frame(height: 25, alignment: .center)
