@@ -35,7 +35,7 @@ final class ArticleListViewModel: ObservableObject {
     func fetchNextPageIfPossible() {
 
         guard state.canLoadNextPage else { return }
-        var params = ["language" : "en" ,"pageSize" : String(pageSize) , "page" : String(state.page)]
+        var params = ["language" : String(Locale.preferredLanguages[0].prefix(2)) ,"pageSize" : String(pageSize) , "page" : String(state.page)]
         var response : AnyPublisher<ArticlesResponse, Error>
         if(state.activeTab != "all" ) {
             params["q"] = state.activeTab

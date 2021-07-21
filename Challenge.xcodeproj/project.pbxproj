@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F476274426A714B0002F8105 /* AlertX in Frameworks */ = {isa = PBXBuildFile; productRef = F476274326A714B0002F8105 /* AlertX */; };
+		F476274626A83BB0002F8105 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F476274526A83BB0002F8105 /* LaunchScreen.storyboard */; };
 		F4AA7FA326A44597009D2226 /* ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA7FA226A44597009D2226 /* ChallengeApp.swift */; };
 		F4AA7FA526A44597009D2226 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AA7FA426A44597009D2226 /* ContentView.swift */; };
 		F4AA7FA726A4459C009D2226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4AA7FA626A4459C009D2226 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F476274526A83BB0002F8105 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4AA7F9F26A44597009D2226 /* Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4AA7FA226A44597009D2226 /* ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeApp.swift; sourceTree = "<group>"; };
 		F4AA7FA426A44597009D2226 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F4AA7FA626A4459C009D2226 /* Assets.xcassets */,
 				F4AA7FAB26A4459C009D2226 /* Info.plist */,
 				F4AA7FA826A4459C009D2226 /* Preview Content */,
+				F476274526A83BB0002F8105 /* LaunchScreen.storyboard */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F476274626A83BB0002F8105 /* LaunchScreen.storyboard in Resources */,
 				F4AA7FAA26A4459C009D2226 /* Preview Assets.xcassets in Resources */,
 				F4AA7FA726A4459C009D2226 /* Assets.xcassets in Resources */,
 			);

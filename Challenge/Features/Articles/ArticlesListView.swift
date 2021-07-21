@@ -62,35 +62,36 @@ struct ArticleListView: View {
                         .fontWeight(.bold)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width / 3)
-                }
+                }.accessibilityIdentifier("All")
                 
                 Button(action: {
                     viewModel.changeTab(activeTab: "covid")
                 }){
                     
-                    Text("Covid")
+                    Text("#COVID")
                         .underline(viewModel.state.activeTab=="covid",color: Color.white)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width / 3)
-                }
+                }.accessibilityIdentifier("#COVID")
                 
                 
                 Button(action: {
                     viewModel.changeTab(activeTab: "sport")
                 }){
-                    Text("Sport")
+                    Text("#SPORT")
                         .underline(viewModel.state.activeTab=="sport",color: Color.white)
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .padding(.vertical)
                         .frame(width: UIScreen.main.bounds.width / 3 )
-                }
+                }.accessibilityIdentifier("#SPORT")
             }
         })
         .frame( height: 80, alignment: .center)
         .cornerRadius(20)
+        .accessibilityIdentifier("newsList")
     }
     
     struct ArticlesList : View {
